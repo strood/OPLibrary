@@ -1,0 +1,14 @@
+body {
+  background-color: #33261D; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 3% 10% 3% 10%;
+  background-color: #334E58;
+  color: white; }
+  header h1 {
+    font-size: 25px; }
+
+/*# sourceMappingURL=style.css.map */

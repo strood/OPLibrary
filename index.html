@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>My Project</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.15/dist/shoelace/shoelace.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.15/dist/shoelace/shoelace.esm.js"></script>
+  <link rel="stylesheet" href="/styles/normalize.css">
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Your Library</h1>
+    <sl-button id="newBookButton">Add Book</sl-button>
+  </header>
+  <section class="bookBox">
+
+    <sl-dialog label="New Book" class="dialog-overview">
+      <sl-form class="newBookForm">
+        <sl-input name="title" type="text" label="Title"></sl-input>
+        <br>
+        <sl-input name="author" type="text" label="Author"></sl-input>
+        <br>
+        <sl-input name="pages" type="number" label="Pages"></sl-input>
+        <br>
+        <sl-checkbox>Read Book?</sl-checkbox>
+        <br>
+        <br>
+        <sl-button submit>Add to Library</sl-button>
+      </sl-form>
+  </sl-dialog>
+
+  </section>
+</body>
+<script type="module" src="/scripts/script.js" charset="utf-8"></script>
+<script type="module" src="/scripts/style.js" charset="utf-8"></script>
+
+</html>
