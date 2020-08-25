@@ -1,14 +1,47 @@
+html {
+  max-width: 100%; }
+
 body {
-  background-color: #33261D; }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #33261D;
+  max-width: 100%; }
 
 header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 3% 10% 3% 10%;
+  align-items: flex-end;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 20px;
   background-color: #334E58;
   color: white; }
   header h1 {
+    padding-left: 5%;
     font-size: 25px; }
+  header sl-button {
+    padding-right: 5%; }
+
+.bookBox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  padding: 2%; }
+
+sl-card {
+  --border-color: #DCED31;
+  --border-width: 2px;
+  max-width: 300px;
+  margin: 1%; }
+  sl-card div[slot=header] {
+    font-size: 29px; }
+  sl-card h2 {
+    font-weight: bold; }
+  sl-card div[slot=footer] {
+    display: flex;
+    justify-content: space-around; }
+    sl-card div[slot=footer] sl-button[type=danger] {
+      margin-left: 5px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -34,7 +34,7 @@ Book.prototype.info = function () {
 
 // Grab and add listener to Add Book Button, brings up dialg box w/ form
 const dialog = document.querySelector('.dialog-overview');
-const newBookButton = document.getElementById('newBookButton');
+const newBookButton = document.querySelector('.newBookButton');
 newBookButton.addEventListener('click', () => dialog.show());
 
 // Add listener to form that grabs info and creates a new book when form submitted
@@ -112,14 +112,17 @@ function makeBookCard(book) {
   let cardHeader = document.createElement('div')
   cardHeader.setAttribute('slot', 'header')
   cardHeader.textContent = `${book.title}`
+  // let cardTitle = document.createElement('h1')
+  // cardTitle.textContent = `${book.title}`
+  // cardHeader.appendChild(cardTitle)
 
   // Book author on card
-  let authorName = document.createElement('h3')
+  let authorName = document.createElement('h2')
   authorName.textContent = `${book.author}`
 
   // Book pages on card
   let pages = document.createElement('h4')
-  pages.textContent = `${book.pages}`
+  pages.textContent = `Pages: ${book.pages}`
 
   // Book 'status'/info on card
   let p = document.createElement('p')
@@ -132,6 +135,7 @@ function makeBookCard(book) {
   // Remove button w/ event listener
   let removeButton = document.createElement('sl-button')
   removeButton.textContent = 'Remove Book'
+  removeButton.setAttribute('type', 'danger')
   removeButton.addEventListener('click', () => {
     // remove book from library array, and delete from page
     let pos = myLibrary.indexOf(book)
@@ -142,6 +146,7 @@ function makeBookCard(book) {
   // Read/Unread button with event listener to toggle status in lbrary and on card
   let readButton = document.createElement('sl-button')
   readButton.textContent = `${(book.read) ? 'Mark as Unread' : 'Mark as Read'}`
+  readButton.setAttribute('type', 'primary')
   readButton.addEventListener('click', () => {
     // mark book as read/unread and change text in card
     book.read = !book.read
