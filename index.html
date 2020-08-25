@@ -19,18 +19,18 @@
 
     <sl-dialog label="New Book" class="dialog-overview">
       <sl-form class="newBookForm">
-        <sl-input name="title" type="text" label="Title"></sl-input>
+        <sl-input class="bookInput" name="title" type="text" label="Title" maxlength=50></sl-input>
         <br>
-        <sl-input name="author" type="text" label="Author"></sl-input>
+        <sl-input class="bookInput" name="author" type="text" label="Author" maxlength=50></sl-input>
         <br>
-        <sl-input name="pages" type="number" label="Pages"></sl-input>
+        <sl-input class="bookInput" name="pages" type="number" label="Pages" min=0></sl-input>
         <br>
         <sl-checkbox>Read Book?</sl-checkbox>
         <br>
         <br>
         <sl-button submit>Add to Library</sl-button>
       </sl-form>
-  </sl-dialog>
+    </sl-dialog>
 
   </section>
 </body>

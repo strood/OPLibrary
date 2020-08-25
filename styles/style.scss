@@ -1,0 +1,17 @@
+$brown: #33261D;
+$darkBlue: #334E58;
+
+body {
+  background-color: $brown;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 3% 10% 3% 10%;
+  background-color: $darkBlue;
+  color: white;
+  h1 {
+    font-size: 25px;
+  }
+}
