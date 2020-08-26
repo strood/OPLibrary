@@ -50,11 +50,12 @@ footer {
   justify-content: flex-end;
   width: 98%; }
   footer p {
-    margin-top: 5px; }
+    margin-top: 10px; }
   footer a {
     text-decoration: none;
     color: white; }
   footer img {
-    padding-right: 2px; }
+    padding-right: 3px;
+    padding-left: 2px; }
 
 /*# sourceMappingURL=style.css.map */
