@@ -6,13 +6,6 @@
 
 const myLibrary = [];
 
-// Render books on document load
-document.onload = () => {
-  renderBooks(myLibrary)
-
-}
-
-
 // ======== Book Setup ============
 // Constructor function to make a new book
 function Book(title, author, pages, read) {
@@ -77,7 +70,16 @@ function clearInputs() {
 function addBookToLibrary(title, author, pages, read) {
   let newBook = new Book(title, author, pages, read)
   myLibrary.push(newBook)
+  saveLibraryInStorage(myLibrary)
   renderBook(newBook)
+}
+
+function saveLibraryInStorage(library) {
+  library.forEach((item, i) => {
+    console.log(item)
+    localStorage.setItem(i, JSON.stringify(item))
+  });
+
 }
 
 // Loop through myLbrary and display the books on the page
@@ -137,9 +139,11 @@ function makeBookCard(book) {
   removeButton.textContent = 'Remove Book'
   removeButton.setAttribute('type', 'danger')
   removeButton.addEventListener('click', () => {
-    // remove book from library array, and delete from page
+    // remove book from library array, and delete from page,
+    //  also update localStorage with updated library
     let pos = myLibrary.indexOf(book)
     myLibrary.splice(pos, 1)
+    localStorage.removeItem(pos)
     removeButton.parentNode.parentNode.remove()
   })
 
@@ -152,6 +156,8 @@ function makeBookCard(book) {
     book.read = !book.read
     readButton.textContent = `${(book.read) ? 'Mark as Unread' : 'Mark as Read'}`
     p.textContent = book.info()
+    saveLibraryInStorage(myLibrary)
+
   })
 
   // Append parts together to build body structure
@@ -168,4 +174,24 @@ function makeBookCard(book) {
 }
 
 // Add a dummy book to library for texting purpopses
-addBookToLibrary('The BFG', 'Rohl Dahl', 255, true)
+// addBookToLibrary('The BFG', 'Rohl Dahl', 255, true)
+// Render books on document load
+
+if(!localStorage.getItem('0')) {
+  // If no local storage, make a new library, and add a new book,
+  // when book created, new library saved to userLibrary
+  // and the new book is rendered
+  addBookToLibrary('The BFG', 'Roald Dahl', 208, true)
+
+} else {
+  // If userLibrary stored, load it ad myLibrary and render library
+  for (var i = 0; i < localStorage.length; i++) {
+    // Since stored in local storage by index in array, access each by index
+    // and if it exists we will parse into object, tehn build book out of that
+     // while adding to library
+    let storedBook = JSON.parse(localStorage.getItem(i))
+    addBookToLibrary(storedBook.title, storedBook.author, storedBook.pages, storedBook.read)
+  }
+
+
+}

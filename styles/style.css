@@ -6,7 +6,8 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #33261D;
-  max-width: 100%; }
+  max-width: 100%;
+  height: 100vh; }
 
 header {
   display: flex;
@@ -43,5 +44,17 @@ sl-card {
     justify-content: space-around; }
     sl-card div[slot=footer] sl-button[type=danger] {
       margin-left: 5px; }
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  width: 98%; }
+  footer p {
+    margin-top: 5px; }
+  footer a {
+    text-decoration: none;
+    color: white; }
+  footer img {
+    padding-right: 2px; }
 
 /*# sourceMappingURL=style.css.map */
